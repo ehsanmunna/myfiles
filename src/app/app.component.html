@@ -20,15 +20,15 @@
 
 <mat-toolbar>My App</mat-toolbar>
 
-<div>
+<div fxLayout="row">
   <div fxFlex="20">
-    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+    <!-- <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
       <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
         <button mat-icon-button disabled></button>
         {{node.item}}
       </mat-tree-node>
       <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
-        <button mat-icon-button
+        <button mat-icon-button (click)="ClickOnTreeFolder(node)"
                 [attr.aria-label]="'toggle ' + node.filename" matTreeNodeToggle>
           <mat-icon class="mat-icon-rtl-mirror">
             {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
@@ -39,11 +39,11 @@
                           mode="indeterminate"
                           class="example-tree-progress-bar"></mat-progress-bar>
       </mat-tree-node>
-    </mat-tree>
+    </mat-tree> -->
+    <app-drive-tree></app-drive-tree>
   </div>
   <div fxFlex="80">
-    details
+    <!-- <app-dirve-pannel></app-dirve-pannel> -->
+    <router-outlet></router-outlet>
   </div>
 </div>
-
-<router-outlet></router-outlet>

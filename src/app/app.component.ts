@@ -15,8 +15,7 @@ interface IDirNode {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  providers: [HttpClient, DynamicDatabase, ApiService]
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'myfiles';
@@ -43,21 +42,24 @@ export class AppComponent {
   //     })
   // }
 
-  constructor(database: DynamicDatabase, public serv:ApiService) {
-    this.treeControl = new FlatTreeControl<DynamicFlatNode>(this.getLevel, this.isExpandable);
-    this.dataSource = new DynamicDataSource(this.treeControl, database, serv);
+  // constructor(database: DynamicDatabase, public serv:ApiService) {
+  //   this.treeControl = new FlatTreeControl<DynamicFlatNode>(this.getLevel, this.isExpandable);
+  //   this.dataSource = new DynamicDataSource(this.treeControl, database, serv);
 
-    this.dataSource.data = database.initialData();
-  }
+  //   this.dataSource.data = database.initialData();
+  // }
 
-  treeControl: FlatTreeControl<DynamicFlatNode>;
+  // treeControl: FlatTreeControl<DynamicFlatNode>;
 
-  dataSource: DynamicDataSource;
+  // dataSource: DynamicDataSource;
 
-  getLevel = (node: DynamicFlatNode) => node.level;
+  // getLevel = (node: DynamicFlatNode) => node.level;
 
-  isExpandable = (node: DynamicFlatNode) => node.expandable;
+  // isExpandable = (node: DynamicFlatNode) => node.expandable;
 
-  hasChild = (_: number, _nodeData: DynamicFlatNode) => _nodeData.expandable;
+  // hasChild = (_: number, _nodeData: DynamicFlatNode) => _nodeData.expandable;
   
+  // ClickOnTreeFolder = (item) => {
+  //   console.log(item);
+  // }
 }

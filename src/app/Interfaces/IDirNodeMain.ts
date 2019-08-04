@@ -1,6 +1,6 @@
 interface IDirNodeMain{
     name: string;
-    fulPath: string;
+    fullPath: string;
     isDirectory: boolean;
     isFile: boolean;
     ext: string;

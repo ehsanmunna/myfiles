@@ -1,0 +1,12 @@
+<!-- <pre>
+    {{driveDetails|json}}
+</pre> -->
+<div>
+    <p>HDD: {{driveDetails?.description}}, Size: {{driveDetails?.size / 1024 / 1024 / 1024}} GB</p>
+</div>
+
+<div>
+    <div *ngFor="let drive of mountPoints">
+        <button mat-button (click)="GoToDrive(drive.path)">{{drive.path}}</button>
+    </div>
+</div>

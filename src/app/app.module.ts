@@ -11,6 +11,10 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { DriveTreeComponent } from './Components/DriveTree/DriveTree';
+import { DrivePannelComponent } from './Components/DrivePannel/DrivePannel';
+import { DrivePannelInsideComponent } from './Components/DriveInside/DriveInside';
+import {MatCardModule} from '@angular/material/card';
 
 const _materialModule = [
   MatToolbarModule
@@ -18,11 +22,19 @@ const _materialModule = [
   , MatIconModule
   , MatButtonModule
   , MatProgressBarModule
+  , MatCardModule
+]
+
+const _componets = [
+  DriveTreeComponent
+  , DrivePannelComponent
+  , DrivePannelInsideComponent
 ]
 
 @NgModule({
   declarations: [
     AppComponent
+    , _componets
   ],
   imports: [
     _materialModule,
