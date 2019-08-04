@@ -3,6 +3,7 @@ import { FlatTreeControl } from '@angular/cdk/tree';
 import { MatTreeFlattener, MatTreeFlatDataSource } from '@angular/material/tree';
 import { HttpClient } from '@angular/common/http';
 import { DynamicDatabase, DynamicFlatNode, DynamicDataSource } from 'src/app/Services/DynamicDatasource';
+import { ApiService } from './Services/apiService';
 
 
 interface IDirNode {
@@ -15,7 +16,7 @@ interface IDirNode {
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers: [HttpClient, DynamicDatabase]
+  providers: [HttpClient, DynamicDatabase, ApiService]
 })
 export class AppComponent {
   title = 'myfiles';
@@ -42,9 +43,9 @@ export class AppComponent {
   //     })
   // }
 
-  constructor(database: DynamicDatabase) {
+  constructor(database: DynamicDatabase, public serv:ApiService) {
     this.treeControl = new FlatTreeControl<DynamicFlatNode>(this.getLevel, this.isExpandable);
-    this.dataSource = new DynamicDataSource(this.treeControl, database);
+    this.dataSource = new DynamicDataSource(this.treeControl, database, serv);
 
     this.dataSource.data = database.initialData();
   }
